@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Frontend para Gerenciamento de Usuários e Serviços
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o frontend da aplicação de gerenciamento de usuários e serviços, desenvolvido em React com Typescript. Ele consome a API descrita no [README do backend](https://github.com/matheus-calixto-silva/backend).
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js v16.13.0 ou superior
+- Gerenciador de pacotes npm ou yarn
 
-## Expanding the ESLint configuration
+## Configuração do Ambiente
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone o repositório:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/matheus-calixto-silva/frontend.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Instale as dependências:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# ou
+yarn
 ```
+
+## Scripts Disponíveis
+
+- **`npm run dev`**: Inicia o servidor de desenvolvimento
+- **`npm run build`**: Gera os arquivos otimizados para produção
+- **`npm run preview`**: Serve os arquivos de produção localmente para testes
+
+## Funcionalidades
+
+### Usuários
+
+- **Cadastro de Usuários:** Formulário para criação de novos usuários.
+- **Login de Usuário:** O usuário pode se autenticar através do endpoint `/login` da API.
+
+### Serviços
+
+- **Listagem de Serviços:** Interface para exibir serviços cadastrados.
+- **Listagem de Serviços Agendados:** Interface para exibir serviços solicitados pelo usuário.
+
+## Estrutura de Pastas
+
+A estrutura de pastas segue a organização recomendada para projetos React.
+
+```plaintext
+src/
+├── app/       
+├──── contexts/     # Contextos de estado global
+├──── └── utils/    # Funções utilitárias
+├──── hooks/        # Hooks personalizados
+├──── routes/       # Configuração de rotas
+├─── views/         
+├──── services/     # Serviços de comunicação com a API
+├──── assets/       # Arquivos estáticos (imagens, ícones, etc.)
+├──── pages/        # Páginas da aplicação
+├──── components/   # Componentes reutilizáveis
+├──── styles/       # Arquivos de estilização (CSS/SCSS)
+```
+
+## Testando o Frontend
+
+Recomenda-se o uso de uma ferramenta como o [Vite](https://vitejs.dev/) para rodar o projeto localmente:
+
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+A aplicação estará disponível no navegador em [http://localhost:5173](http://localhost:5173) por padrão.
+
+Certifique-se de que o backend também esteja em execução para consumir os endpoints.
