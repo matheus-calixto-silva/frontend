@@ -1,5 +1,5 @@
 import { IService } from './IService';
-import { IUser } from './User';
+import { IUser } from './IUser';
 
 export interface ISchedule {
   id: number;
