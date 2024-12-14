@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IRegisterForm } from '../interfaces/IRegisterForm';
-import { IUser } from '../interfaces/User';
+import { IUser } from '../interfaces/IUser';
 
 const baseUrl = 'http://localhost:3000';
 
